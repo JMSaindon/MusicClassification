@@ -10,4 +10,4 @@ Le dossier `Extractor` contient le code servant à extraire les features depuis 
 - `MusicClassification.ipynb` a servit pour tester les différents modèles de machine learning.
 - `ClassiForKaggle.ipynb` a servit pour soumettre les résultats sur Kaggle.
 
-Les deux fichiers `xxxUsingProf.ipynb` sont des variantes des deux fichiers précédent dans lesquels nous avons utilisé les features de l'encadrant à la place des notre.
+Les deux fichiers `xxxUsingProf.ipynb` sont des variantes des deux fichiers précédent dans lesquels nous avons utilisé les features de l'encadrant (non fournies) à la place des notre.
