@@ -10,6 +10,8 @@ import math
 import time
 
 
+# Features avec essentia non utilisées finalement
+
 pathTest = "../test/Test/"
 pathTrain = "../train/Train/"
 

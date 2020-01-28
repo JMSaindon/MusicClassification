@@ -7,31 +7,29 @@ import pandas as pd
 import scipy.stats as stats
 import math
 import time
-# import zipfile
 
 import matplotlib.pyplot as plt
 import librosa.display
 
+# Donner les répertoires dans lesquels se trouvent les musiques de test et de train
 pathTest = "../test/Test/"
 pathTrain = "../train/Train/"
 
 test_set = os.listdir(pathTest)
 train_set = os.listdir(pathTrain)
 
-# if (not os.path.exists("spectroTrain")):
-#     os.mkdir("spectroTrain")
-#
-# if (not os.path.exists("spectroTest")):
-#     os.mkdir("spectroTest")
+# fichiers créés pour stocker les features de test et de train
+traincsv = "../train_data.csv"
+testcsv = "../test_data.csv"
 
-if (os.path.exists("../train_data.csv")):
-    os.remove("../train_data.csv")
+if (os.path.exists(traincsv)):
+    os.remove(traincsv)
 
-if (os.path.exists("../test_data.csv")):
-    os.remove("../test_data.csv")
+if (os.path.exists(testcsv)):
+    os.remove(testcsv)
 
-trainData = open("../train_data.csv", "w")
-testData = open("../test_data.csv", "w")
+trainData = open(traincsv, "w")
+testData = open(testcsv, "w")
 
 stats = [stats.kurtosis, stats.skew, np.max, np.min, np.mean, np.std, np.median]
 features1 = [feat.chroma_cens, feat.chroma_cqt, feat.chroma_stft, feat.mfcc, feat.spectral_bandwidth, feat.spectral_centroid, feat.spectral_contrast, feat.spectral_rolloff, feat.tonnetz, feat.poly_features]
@@ -109,23 +107,3 @@ stopTest = time.time()
 print("temps extraction train : " + str(stopTrain-startTrain))
 print("temps extraction test : " + str(stopTest-startTest))
 print("fichier erronés : " + ', '.join(failed))
-
-
-
-# audio_path = pathTrain + "000002.mp3"
-# y, sr = librosa.load(audio_path, sr=44100)
-#
-# print(sr)
-#
-# plt.figure(figsize=(14, 5))
-# librosa.display.waveplot(y, sr=sr)
-#
-# S = librosa.feature.melspectrogram(y=y, sr=sr)
-#
-# plt.figure(figsize=(10, 4))
-# S_dB = librosa.power_to_db(S, ref=np.max)
-# librosa.display.specshow(S_dB, sr=sr, fmax=8000)
-# # plt.colorbar(format='%+2.0f dB')
-# # plt.title('Mel-frequency spectrogram')
-# # plt.tight_layout()
-# plt.show()
